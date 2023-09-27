@@ -1,0 +1,166 @@
+﻿@using Shop.Core.Domain
+@model Order
+@{
+    ViewData["Title"] = "Index";
+}
+
+  <div class="hero-wrap hero-bread" style="background-image: url(https://www.greenqueen.com.hk/wp-content/uploads/2021/07/Rental-Fashion-Causes-More-Emissions-Than-Throwing-Clothes-Away.jpg;);">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 ftco-animate">
+						  <form class="row contact_form" asp-action="index" asp-controller="Checkout" method="post">
+							<h3 class="mb-4 billing-heading">جزئیات صورتحساب</h3>
+	          	<div class="row align-items-end">
+	          		<div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="firstname">نام</label>
+	                  <input type="text" placeholder="نام" class="form-control" id="first" asp-for="Name" />
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="lastname">نام خانوادگی</label>
+	                  <input type="text" placeholder="نام خانوادگی" class="form-control" id="last" asp-for="Surname" />
+	                </div>
+                </div>
+               @* <div class="w-100"></div>
+		            <div class="col-md-12">
+		            	<div class="form-group">
+		            		<label for="country">شهر / کشور</label>
+		            		<div class="select-wrap">
+		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                  <select name="" id="" class="form-control m-1">
+		                  	<option value="">ایران</option>
+		                    <option value="">کانادا</option>
+		                    <option value="">انگلیس</option>
+		                    <option value="">مالزی</option>
+		                    <option value="">ترکیه</option>
+		                    <option value="">امریکا</option>
+		                  </select>
+		                </div>
+		            	</div>
+		            </div>*@
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">آدرس</label>
+	                    <input type="text" class="form-control" placeholder="آدرس" id="add1" asp-for="Address" />
+	                </div>
+		            </div>
+		           @* <div class="col-md-6">
+		            	<div class="form-group">
+	                  <input type="text" class="form-control" placeholder="آپارتمان و سوییت و ...">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="towncity">شهرک / شهر</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+		            </div>*@
+		            <div class="col-md-6">
+		            	<div class="form-group">
+		            		<label for="postcodezip">کد پستی *</label>
+	                  <input type="text" class="form-control" id="zip" asp-for="ZipCode" placeholder="کدپستی" />
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="phone">شماره تماس</label>
+	                  <input type="text" placeholder="شماره تلفن" class="form-control" id="number" asp-for="Phone" />
+	                </div>
+	              </div>
+	              @*<div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="emailaddress">ایمیل آدرس</label>
+	                  <input type="text" class="form-control" placeholder="">
+	                </div>
+                </div>*@
+                <div class="w-100"></div>
+                <div class="col-md-12">
+                	<div class="form-group mt-4">
+										<div class="radio">
+										  <label class="mr-3"><input type="radio" name="optradio"> ساخت اکانت؟ </label>
+										  <label><input type="radio" name="optradio"> حمل به آدرس های مختلف</label>
+										</div>
+									</div>
+                </div>
+	            </div>
+	          </form>
+			  <!-- END -->
+					</div>
+					<div class="col-xl-5">
+	          <div class="row mt-5 pt-3">
+	          	<div class="col-md-12 d-flex mb-5">
+	          		<div class="cart-detail cart-total p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">جمع کل صورتحساب</h3>
+	          			<p class="d-flex">
+		    						<span>جمع کل</span>
+		    						<span>@((ViewBag.Cart as Shop.Core.Domain.Cart).GetTotalPrice()) تومان</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>تحویل</span>
+		    						<span>40000 تومان</span>
+		    					</p>
+		    				@*	<p class="d-flex">
+		    						<span>تخفیف</span>
+		    						<span>3.00 تومان</span>
+		    					</p>*@
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>مجموع</span>
+		    						<span>@((ViewBag.Cart as Shop.Core.Domain.Cart).GetTotalPrice()+40000) تومان</span>
+		    					</p>
+					    </div>
+	          	</div>
+	          	<div class="col-md-12">
+	          		<div class="cart-detail p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">روش های پرداخت</h3>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2"> از طریق درگاه بانکی</label>
+											</div>
+										</div>
+									</div>
+									@*<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2">  پرداخت قسطی</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="radio">
+											   <label><input type="radio" name="optradio" class="mr-2"> از طریق کارت اعتباری</label>
+											</div>
+										</div>
+									</div>*@
+									<div class="form-group">
+										<div class="col-md-12">
+											<div class="checkbox">
+											   <label><input type="checkbox" value="" class="mr-2"> من شرایط را خوانده و تایید میکنم</label>
+											</div>
+										</div>
+									</div>
+									<p><input type="submit" class="btn btn-primary py-3 px-4" value="ثبت سفارش" href="~/Payment/Pay" /></p>
+								</div>
+	          	</div>
+	          </div>
+          </div> <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+
